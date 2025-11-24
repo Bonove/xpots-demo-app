@@ -183,7 +183,7 @@ Zie [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) voor volledige instructies.
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/Bonove/xparc-demo-app)
+- [GitHub Repository](https://github.com/Bonove/xpots-demo-app)
 - [Retell AI Platform](https://platform.retellai.com/)
 - [Retell API Documentatie](https://docs.retellai.com/)
 
