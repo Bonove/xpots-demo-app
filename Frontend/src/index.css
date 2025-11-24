@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply font-sans bg-xpark-antraciet text-white;
+}
+
+/* Kleine helper voor de dot-separator pay-off stijl */
+.dot-separator span::after {
+  content: '.';
+  margin: 0 0.15rem;
+}
+.dot-separator span:last-child::after {
+  content: '';
+}
