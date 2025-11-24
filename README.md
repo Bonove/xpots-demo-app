@@ -1,4 +1,4 @@
-# XPARK Voice Demo App
+# XPOTS Voice Demo App
 
 Een voice assistant applicatie met React frontend en Express backend, geïntegreerd met Retell AI.
 
@@ -50,23 +50,34 @@ De frontend draait nu op `http://localhost:3000` (standaard Vite poort)
 
 ## 📁 Project Structuur
 
+Dit is een **monorepo** - één repository met twee aparte applicaties die onafhankelijk van elkaar deployed kunnen worden:
+
 ```
 xparc-demo-app/
-├── Backend/
+├── Backend/              # Express.js API server
 │   ├── index.js          # Express server met Retell API integratie
 │   ├── package.json
 │   ├── .env              # Environment variables (niet in git)
 │   └── README.md         # Backend-specifieke documentatie
 │
-└── Frontend/
-    ├── src/
-    │   ├── App.tsx       # Hoofdcomponent
-    │   ├── components/   # React componenten
-    │   ├── hooks/        # Custom React hooks
-    │   └── lib/          # Utility functies
-    ├── package.json
-    └── vite.config.ts    # Vite configuratie
+├── Frontend/             # React/Vite applicatie
+│   ├── src/
+│   │   ├── App.tsx       # Hoofdcomponent
+│   │   ├── components/   # React componenten
+│   │   ├── hooks/        # Custom React hooks
+│   │   └── lib/          # Utility functies
+│   ├── package.json
+│   └── vite.config.ts    # Vite configuratie
+│
+└── RENDER_DEPLOYMENT.md  # Deployment instructies voor Render.com
 ```
+
+### Voordelen Monorepo
+
+- **Gecentraliseerd:** Alle code in één repository
+- **Onafhankelijk deploybaar:** Backend en Frontend kunnen apart gedeployed worden
+- **Shared configuratie:** Gedeelde tooling en configuratie waar nodig
+- **Eenvoudig versiebeheer:** Alle wijzigingen in één git history
 
 ## 🔧 Development Commands
 
@@ -152,8 +163,27 @@ VITE_BACKEND_URL=http://localhost:8080
 - De frontend gebruikt Vite voor development en build tooling
 - CORS is geconfigureerd voor `localhost:3000` en `https://xpots.onrender.com`
 
+## 🚢 Deployment
+
+Deze monorepo is ontworpen om backend en frontend **apart** te deployen:
+
+### Render.com (Aanbevolen)
+
+Zie [RENDER_DEPLOYMENT.md](./RENDER_DEPLOYMENT.md) voor volledige instructies.
+
+**Backend:** Deploy als Web Service (Node.js)
+**Frontend:** Deploy als Static Site (Vite build)
+
+### Andere Platforms
+
+- **Vercel:** Frontend deploy (gebruik `Frontend/` als root directory)
+- **Railway:** Backend deploy (gebruik `Backend/` als root directory)
+- **Netlify:** Frontend deploy (gebruik `Frontend/dist` als publish directory)
+- **Heroku:** Backend deploy (gebruik root directory met aangepast build command)
+
 ## 🔗 Links
 
+- [GitHub Repository](https://github.com/Bonove/xparc-demo-app)
 - [Retell AI Platform](https://platform.retellai.com/)
 - [Retell API Documentatie](https://docs.retellai.com/)
 

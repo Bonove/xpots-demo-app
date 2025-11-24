@@ -2,7 +2,7 @@
 
 ## Overzicht
 
-Voor deze XPARK Voice Demo App heb je **2 services** nodig op Render.com:
+Voor deze XPOTS Voice Demo App heb je **2 services** nodig op Render.com:
 
 1. **Web Service** - Voor de Express.js backend
 2. **Static Site** - Voor de React/Vite frontend
@@ -16,7 +16,7 @@ Kies: **Web Service** (globe icon)
 
 ### Configuratie
 
-**Name:** `xpark-voice-backend` (of een naam naar keuze)
+**Name:** `xpots-voice-backend` (of een naam naar keuze)
 
 **Environment:** `Node`
 
@@ -58,7 +58,7 @@ Kies: **Static Site** (monitor icon met network symbol)
 
 ### Configuratie
 
-**Name:** `xpark-voice-frontend` (of een naam naar keuze)
+**Name:** `xpots-voice-frontend` (of een naam naar keuze)
 
 **Build Command:**
 ```bash
@@ -77,10 +77,10 @@ Frontend/dist
 Voeg de volgende environment variable toe:
 
 ```
-VITE_BACKEND_URL=https://xpark-voice-backend.onrender.com
+VITE_BACKEND_URL=https://xpots-voice-backend.onrender.com
 ```
 
-**Let op:** Vervang `xpark-voice-backend` met de daadwerkelijke naam van je backend service. Render geeft elke service een URL zoals `https://[service-name].onrender.com`.
+**Let op:** Vervang `xpots-voice-backend` met de daadwerkelijke naam van je backend service. Render geeft elke service een URL zoals `https://[service-name].onrender.com`.
 
 ### Aanbevolen Instellingen
 
@@ -100,7 +100,7 @@ app.use(cors({
    origin: [
        'http://localhost:3000',
        'https://xpots.onrender.com',
-       'https://xpark-voice-frontend.onrender.com'  // Voeg je Render frontend URL toe
+       'https://xpots-voice-frontend.onrender.com'  // Voeg je Render frontend URL toe
    ],
    methods: ['GET', 'POST', 'OPTIONS'],
    credentials: true,
@@ -108,7 +108,7 @@ app.use(cors({
 }));
 ```
 
-**Let op:** Vervang `xpark-voice-frontend` met je daadwerkelijke frontend service naam.
+**Let op:** Vervang `xpots-voice-frontend` met je daadwerkelijke frontend service naam.
 
 ---
 
@@ -123,7 +123,7 @@ app.use(cors({
 5. Voeg environment variables toe (`RETELL_API_KEY`)
 6. Klik "Create Web Service"
 7. Wacht tot de build en deploy klaar zijn
-8. Noteer de URL (bijv. `https://xpark-voice-backend.onrender.com`)
+8. Noteer de URL (bijv. `https://xpots-voice-backend.onrender.com`)
 
 ### Stap 2: Frontend Deployen
 
@@ -134,7 +134,7 @@ app.use(cors({
 5. Voeg environment variable toe (`VITE_BACKEND_URL` met de backend URL uit stap 1)
 6. Klik "Create Static Site"
 7. Wacht tot de build en deploy klaar zijn
-8. Noteer de URL (bijv. `https://xpark-voice-frontend.onrender.com`)
+8. Noteer de URL (bijv. `https://xpots-voice-frontend.onrender.com`)
 
 ### Stap 3: Backend CORS Updaten
 

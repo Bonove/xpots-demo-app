@@ -22,20 +22,20 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-xpark-antraciet to-black overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-xpots-antraciet to-black overflow-hidden">
       {/* Hidden / slide panel */}
       <AgentPanel agentId={agentId} onAgentIdChange={setAgentId} />
 
       {/* Subtle background accents */}
-      <div className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-xpark-orange/20 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-5rem] bottom-[-5rem] h-72 w-72 rounded-full bg-xpark-softgreen/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-xpots-orange/20 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-5rem] bottom-[-5rem] h-72 w-72 rounded-full bg-xpots-softgreen/10 blur-3xl" />
 
       <main className="relative z-10 w-full max-w-xl px-4">
         {/* Header / logo line */}
         <header className="mb-10 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-xpark-softgreen border border-white/10">
-            <span className="font-semibold">XPARK</span>
-            <span className="w-1 h-1 rounded-full bg-xpark-orange" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-xpots-softgreen border border-white/10">
+            <span className="font-semibold">XPOTS</span>
+            <span className="w-1 h-1 rounded-full bg-xpots-orange" />
             <span className="dot-separator">
               <span>Parkeren</span>
               <span>Opgelost</span>
@@ -45,7 +45,7 @@ export const App: React.FC = () => {
             Voice Assistant
           </h1>
           <p className="mt-2 text-xs md:text-sm text-white/60">
-            Eén single point of access. Start het gesprek en laat XPARK de rest
+            Eén single point of access. Start het gesprek en laat XPOTS de rest
             doen.
           </p>
         </header>
@@ -56,8 +56,8 @@ export const App: React.FC = () => {
             <CircularWaveform
               audioTrack={audioTrack}
               isThinking={isThinking || (!audioTrack && isCalling)}
-              color1="#ff6441"    // XPARK oranje
-              color2="#9eae8a"    // XPARK groen
+              color1="#ff6441"    // XPOTS oranje
+              color2="#9eae8a"    // XPOTS groen
             />
           </div>
 
@@ -108,7 +108,7 @@ export const App: React.FC = () => {
                   const event = new CustomEvent('openAgentPanel');
                   window.dispatchEvent(event);
                 }}
-                className="text-xs text-xpark-orange underline mx-auto block"
+                className="text-xs text-xpots-orange underline mx-auto block"
               >
                 Open Agent Panel →
               </button>

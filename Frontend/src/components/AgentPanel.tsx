@@ -22,7 +22,7 @@ export const AgentPanel: React.FC<AgentPanelProps> = ({
 
   // Load from localStorage once on mount
   useEffect(() => {
-    const stored = localStorage.getItem('xpark-agent-id');
+    const stored = localStorage.getItem('xpots-agent-id');
     if (stored) {
       onAgentIdChange(stored);
     }
@@ -31,7 +31,7 @@ export const AgentPanel: React.FC<AgentPanelProps> = ({
 
   const handleChange = (value: string) => {
     onAgentIdChange(value);
-    localStorage.setItem('xpark-agent-id', value);
+    localStorage.setItem('xpots-agent-id', value);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -63,7 +63,7 @@ export const AgentPanel: React.FC<AgentPanelProps> = ({
       {/* Small tab for desktop */}
       <button
         onClick={() => setOpen(!open)}
-        className="hidden md:flex fixed top-1/2 -translate-y-1/2 left-0 z-30 bg-xpark-orange text-white text-xs px-2 py-1 rounded-r-md shadow-soft"
+        className="hidden md:flex fixed top-1/2 -translate-y-1/2 left-0 z-30 bg-xpots-orange text-white text-xs px-2 py-1 rounded-r-md shadow-soft"
       >
         Agent
       </button>
@@ -71,17 +71,17 @@ export const AgentPanel: React.FC<AgentPanelProps> = ({
       {/* Panel */}
       <div
         className={cn(
-          'fixed inset-y-0 left-0 z-20 w-72 bg-xpark-grey text-xpark-antraciet shadow-strong transform transition-transform duration-300 ease-out',
+          'fixed inset-y-0 left-0 z-20 w-72 bg-xpots-grey text-xpots-antraciet shadow-strong transform transition-transform duration-300 ease-out',
           open ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-        <div className="flex items-center justify-between px-4 py-3 border-b border-xpark-softgreen/40">
-          <div className="text-xs font-semibold tracking-wide text-xpark-antraciet">
-            XPARK • VOICE SETTINGS
+        <div className="flex items-center justify-between px-4 py-3 border-b border-xpots-softgreen/40">
+          <div className="text-xs font-semibold tracking-wide text-xpots-antraciet">
+            XPOTS • VOICE SETTINGS
           </div>
           <button
             onClick={() => setOpen(false)}
-            className="text-xs text-xpark-darkgreen"
+            className="text-xs text-xpots-darkgreen"
           >
             Sluit
           </button>
@@ -94,11 +94,11 @@ export const AgentPanel: React.FC<AgentPanelProps> = ({
             <input
               value={agentId}
               onChange={e => handleChange(e.target.value)}
-              className="w-full rounded-md border border-xpark-darkgreen bg-white/80 px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-xpark-orange"
+              className="w-full rounded-md border border-xpots-darkgreen bg-white/80 px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-xpots-orange"
               placeholder="bv. agnt_12345..."
             />
           </div>
-          <p className="text-xs text-xpark-darkgreen leading-snug">
+          <p className="text-xs text-xpots-darkgreen leading-snug">
             Deze agent ID wordt meegestuurd naar jouw backend endpoint
             <span className="block text-[10px] mt-2 opacity-70">
               API key blijft veilig in de server (.env).

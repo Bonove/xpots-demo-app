@@ -6,7 +6,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        xpark: {
+        xpots: {
           orange: '#ff6441',
           grey: '#e9eae8',
           antraciet: '#202624',
