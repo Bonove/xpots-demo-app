@@ -4,6 +4,8 @@ import { AgentPanel } from './components/AgentPanel';
 import { Button } from './components/ui/button';
 import { useRetellCall } from './hooks/useRetellCall';
 
+const FALLBACK_AGENT_ID = 'agent_6060a407ca8d67183fd121e612';
+
 export const App: React.FC = () => {
   const [agentId, setAgentId] = useState('');
   const { isCalling, isThinking, error, audioTrack, startCall, stopCall } =
@@ -11,7 +13,9 @@ export const App: React.FC = () => {
 
   const handleStart = () => {
     if (!isCalling) {
-      void startCall({ agentId });
+      // Use fallback agent ID if no agent ID is set
+      const effectiveAgentId = agentId || FALLBACK_AGENT_ID;
+      void startCall({ agentId: effectiveAgentId });
     }
   };
 
@@ -66,7 +70,7 @@ export const App: React.FC = () => {
               variant="primary"
               size="lg"
               onClick={handleStart}
-              disabled={!agentId || isCalling}
+              disabled={isCalling}
               type="button"
             >
               {isCalling ? 'Bezig…' : 'Start gesprek'}
@@ -95,25 +99,18 @@ export const App: React.FC = () => {
             </p>
           )}
 
-          {!agentId && (
-            <div className="mt-2 space-y-2">
-              <p className="text-[11px] text-white/50 text-center max-w-xs">
-                Tip: swipe vanaf de linker schermrand of klik op het{' '}
-                <span className="font-semibold">Agent</span>-tabje om de Retell
-                agent ID in te stellen.
+          <div className="mt-2 space-y-2">
+            <p className="text-[11px] text-white/50 text-center max-w-xs">
+              Tip: swipe vanaf de linker schermrand of klik op het{' '}
+              <span className="font-semibold">Agent</span>-tabje om een andere Retell
+              agent ID in te stellen.
+            </p>
+            {!agentId && (
+              <p className="text-[10px] text-white/40 text-center">
+                (Gebruikt standaard agent ID)
               </p>
-              <button
-                onClick={() => {
-                  // Trigger AgentPanel open via event
-                  const event = new CustomEvent('openAgentPanel');
-                  window.dispatchEvent(event);
-                }}
-                className="text-xs text-xpots-orange underline mx-auto block"
-              >
-                Open Agent Panel →
-              </button>
-            </div>
-          )}
+            )}
+          </div>
         </section>
       </main>
     </div>
